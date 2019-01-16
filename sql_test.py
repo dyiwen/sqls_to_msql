@@ -8,11 +8,11 @@ def show_china(s):
 
 #----------------------------------------------------------------------------------------------------
 def sqls_select(sql):
-	con_sqls = DAL.sqlserver('192.168.1.41','fcxt','fcxt123')
+	con_sqls = DAL.sqlserver('','','')
 	if con_sqls:
 		print "connected"
-		#sql = "Select Name FROM SysColumns Where id=Object_Id('v_fc_basysj');"
-		#sql = "SELECT TOP 1 * FROM v_fc_basysj"
+		#sql = "Select Name FROM SysColumns Where id=Object_Id('');"
+		#sql = "SELECT TOP 1 * FROM "
 		rowcount, result = con_sqls.execute(sql)
 		print result
 		print len(result)
@@ -20,7 +20,7 @@ def sqls_select(sql):
 	return result
 
 def msql_select(sql):
-	con_msql = DAL.Mysql('127.0.0.1','root','Mypassword@2qq','af', 33966)
+	con_msql = DAL.Mysql('127.0.0.1','root','','', )
 	if con_msql:
 		print "connected"
 		rowcount, result = con_msql.execute(sql)
@@ -29,7 +29,7 @@ def msql_select(sql):
 	return result
 
 def msql_executemany(sql,data):
-	con_msql = DAL.Mysql('127.0.0.1','root','Mypassword@2qq','af', 33966)
+	con_msql = DAL.Mysql('127.0.0.1','root','','', )
 	if con_msql:
 		print "connected"
 		effect_row = con_msql.executemany(sql,data)
